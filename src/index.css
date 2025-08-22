@@ -1,0 +1,107 @@
+/* --- Reset / base --- */
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; }
+html, body, #root { height: 100%; }
+body {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  color: #0F172A; /* slate-900 */
+}
+
+/* --- Design tokens --- */
+:root{
+  --sidebar-w: 280px;
+  --sidebar-bg: #ffffff;
+  --sidebar-border: #eceef1;
+
+  --content-bg: #EAF2FE; /* soft blue like the mock */
+  --text-muted: #52525B; /* zinc-600 */
+  --text-soft:  #6B7280; /* gray-500 */
+
+  --brand: #111827;
+  --fab-bg: #1E1B4B;  /* indigo-950 */
+  --fab-fg: #ffffff;
+}
+
+/* --- Layout --- */
+.app-shell{
+  display: grid;
+  grid-template-columns: var(--sidebar-w) 1fr;
+  min-height: 100svh; /* handles mobile dynamic viewport */
+}
+
+/* Sidebar */
+.sidebar{
+  position: relative;
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--sidebar-border);
+  padding: 30px 18px;
+}
+.brand{
+  font-weight: 500;
+  text-align: center;
+  font-size: 35px;
+  color: var(--brand);
+}
+
+/* Main content (empty state) */
+.content{
+  position: relative;
+  background: var(--content-bg);
+  display: grid;
+  place-items: center;
+  padding: 32px;
+}
+.center-wrap{
+  text-align: center;
+  max-width: 720px;
+  margin-inline: auto;
+}
+
+.illustration{
+  width: clamp(260px, 60vw, 520px);
+  height: auto;
+  margin-bottom: 24px;
+}
+
+.headline{
+  font-size: 50px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  margin-bottom: 10px;
+}
+
+.lead{
+  color: var(--text-muted);
+  font-size: 15px;
+  margin-bottom: 6px;
+}  
+.e2e{
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #64748B; /* slate-500 */
+  font-size: 13px;
+  margin-top: 22px;
+}
+
+/* Floating Action Button */
+.fab{
+  position: absolute;
+  right: 24px;      
+  bottom: 24px;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: none;
+  background: var(--fab-bg);
+  color: var(--fab-fg);
+  font-size: 36px;
+  line-height: 0;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(0,0,0,.15);
+  transition: transform .08s ease-in-out, box-shadow .12s ease-in-out;
+}
+.fab:hover{ transform: translateY(-1px); box-shadow: 0 12px 28px rgba(0,0,0,.18); }
+.fab:active{ transform: translateY(0); box-shadow: 0 8px 18px rgba(0,0,0,.14); }
