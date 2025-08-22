@@ -13,10 +13,6 @@ export default function EmptyState() {
         <p className="lead">
           Use Pocket Notes on up to 4 linked devices and 1 mobile phone
         </p>
-
-        <div className="e2e">
-          <span className="lock" aria-hidden>🔒</span> end-to-end encrypted
-        </div>
       </div>
 
       
